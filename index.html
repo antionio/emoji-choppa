@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"><title>Emoji Choppa</title></head>
@@ -12,6 +13,12 @@
   border-radius:8px;
   font-family:sans-serif;
 ">
+<div style="margin-bottom:10px;">
+<b>Controls</b><br>
+↑ Lift<br>
+← → Move sideways<br>
+Collect 🧍 to score points
+</div>
   <div>
     Gravity:
     <span id="gravityVal">0.30</span><br>
@@ -35,6 +42,14 @@
     <span id="frictionVal">0.98</span><br>
     <input id="friction" type="range" min="0.8" max="1" step="0.001" value="0.98">
   </div>
+
+<button onclick="resetGame()" style="
+margin-top:10px;
+width:100%;
+padding:6px;
+">
+Reset Game
+</button>
 </div>
 <canvas id="c" width="960" height="540"></canvas>
 <script>
