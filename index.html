@@ -80,11 +80,25 @@ const ctx = c.getContext('2d');
 ctx.font = '48px sans-serif';
 ctx.fillStyle = 'white';
 
-let x = 480, y = 100, vx = 0, vy = 0, score = 0;
-let people = [];
-for (let i = 0; i < 5; i++) {
-  people.push({ x: Math.random() * 900, y: 500 });
+let x, y, vx, vy, score, people;
+
+function resetGame() {
+  x = 480;
+  y = 100;
+  vx = 0;
+  vy = 0;
+  score = 0;
+
+  people = [];
+
+  for (let i = 0; i < 5; i++) {
+    people.push({
+      x: Math.random() * 900,
+      y: 500
+    });
+  }
 }
+resetGame();
 
 const keys = {};
 onkeydown = e => { keys[e.key] = true; if (e.key.startsWith('Arrow')) e.preventDefault(); };
@@ -125,6 +139,7 @@ function loop() {
   requestAnimationFrame(loop);
 }
 loop();
+
 </script>
 </body>
 </html>
