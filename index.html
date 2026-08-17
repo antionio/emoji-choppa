@@ -38,6 +38,28 @@
 </div>
 <canvas id="c" width="960" height="540"></canvas>
 <script>
+const params = {
+  gravity: 0.3,
+  lift: 0.8,
+  sideThrust: 0.4,
+  friction: 0.98
+};
+
+function bindSlider(id, prop, digits = 2) {
+  const slider = document.getElementById(id);
+  const label = document.getElementById(id + 'Val');
+
+  slider.oninput = () => {
+    params[prop] = parseFloat(slider.value);
+    label.textContent = params[prop].toFixed(digits);
+  };
+}
+
+bindSlider('gravity', 'gravity');
+bindSlider('lift', 'lift');
+bindSlider('side', 'sideThrust');
+bindSlider('friction', 'friction', 3);
+  
 const c = document.getElementById('c');
 const ctx = c.getContext('2d');
 ctx.font = '48px sans-serif';
